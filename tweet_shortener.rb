@@ -1,5 +1,31 @@
+require "pry" 
 # Write your code here.
-def word_substituter(tweet_one)
+def dictionary
+  dictionary = {
+    "hello" => "hi",
+    "to" => "2",
+    "two" => "2",
+    "too" => "2",
+    "for" => '4',
+    "be" => "b",
+    "you" => "u",
+    "at" => "@",
+    "and" => "$"
+    }
+end 
 
-  tweet_one.collect do |x|
+def word_substituter(tweet_one)
+  tweet_one.split(" ").collect do |word| 
+    # binding.pry
+    if dictionary.keys.include?(word.downcase)
+          word = dictionary[word.downcase]
+    else 
+      word 
+    end
+  end.join(" ") 
+end
+
+
+
+
     
